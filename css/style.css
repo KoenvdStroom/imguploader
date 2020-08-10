@@ -1,0 +1,9 @@
+.actions{
+    width: 50%;
+    margin: 0 auto;
+}
+
+#fileToUpload{
+    width: 100%;
+    margin-left: 50%;
+}

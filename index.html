@@ -3,27 +3,32 @@
   <head>
     <meta charset="utf-8">
     <title>KVDS IMG</title>
-    <script type="text/javascript">
-      var form = document.getElementById("upload");
-      var fileInput = document.getElementById("fileToUpload");
-
-      fileInput.addEventListener('change', () => {
-        form.submit();
-      });
-
-      window.addEventListener('paste', e => {
-        fileInput.files = e.clipboardData.files;
-        form.submit();
-      });
-    </script>
+    <link rel="stylesheet" href="css/style.css">
   </head>
 <body>
 
   <form id="upload" method="post" action="upload.php">
-    <div class="actions"><input type="submit" name="commit" value="Submit" /></div>
+    <div class="actions">
     <input type="file" id="fileToUpload" />
+    <br>
+    <input type="submit" name="commit" value="Submit" />
+    </div>
   </form>
 
+
+  <script type="text/javascript">
+    var form = document.getElementById("upload");
+    var fileInput = document.getElementById("fileToUpload");
+
+    fileInput.addEventListener('change', () => {
+      form.submit();
+    });
+
+    window.addEventListener('paste', e => {
+      fileInput.files = e.clipboardData.files;
+      form.submit();
+    });
+  </script>
 </body>
 </html>
 
