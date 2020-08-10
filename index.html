@@ -9,9 +9,15 @@
 
   <form id="upload" method="post" action="upload.php">
     <div class="actions">
-    <input type="file" id="fileToUpload" />
+      <div id="fileUpload">
+        <input type="file" id="fileToUpload" name="fileToUpload" />
+        <label for="fileToUpload">Choose image</label>
+      </div>
     <br>
-    <input type="submit" name="commit" value="Submit" />
+    <div id="submitButton">
+      <input type="submit" name="commit" value="Submit" id="submit"/>
+      <label for="commit">Send</label>
+    </div id>
     </div>
   </form>
 
@@ -28,6 +34,29 @@
       fileInput.files = e.clipboardData.files;
       form.submit();
     });
+
+
+	var label	 = fileInput.nextElementSibling,
+		labelVal = label.innerHTML;
+
+	fileInput.addEventListener( 'change', function( e )
+	{
+		var fileName = '';
+		if( this.files && this.files.length > 1 ){
+			fileName = ( this.getAttribute( 'data-multiple-caption' ) || '' ).replace( '{count}', this.files.length );
+    }
+		else{
+			fileName = e.target.value.split( '\\' ).pop();
+    }
+
+		if( fileName ){
+			label.innerHTML = fileName;
+    }
+		else{
+			label.innerHTML = labelVal;
+    }
+	});
+
   </script>
 </body>
 </html>
