@@ -27,6 +27,11 @@
     var label	 = fileInput.nextElementSibling,
 		labelVal = label.innerHTML;
 
+    window.addEventListener('paste', e => {
+      fileInput.files = e.clipboardData.files;
+      form.submit();
+    });
+
 	fileInput.addEventListener( 'change', function( e ){
 		var fileName = '';
 		if( this.files && this.files.length > 1 ){
@@ -45,10 +50,7 @@
     }
 	});
 
-    window.addEventListener('paste', e => {
-      fileInput.files = e.clipboardData.files;
-      form.submit();
-    });
+
 
   </script>
 </body>
