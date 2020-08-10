@@ -1,3 +1,14 @@
+/* Header style */
+#head{
+    text-align: center;
+}
+
+#header{
+    font-family: comfortaa;
+    color: #CECECE;
+    font-size: 2em;
+}
+
 
 /* File upload style */
 #fileUpload{
@@ -23,7 +34,7 @@
 }
 
 #fileToUpload + label{
-    font-size: 1.25em;
+    font-size: 1.5em;
     font-weight: bold;
     color: #CECECE;
     cursor: pointer;
@@ -56,7 +67,7 @@
 }
 
 #submit + label{
-    font-size: 1.25em;
+    font-size: 1.5em;
     font-weight: bold;
     color: #CECECE;
     cursor: pointer;
@@ -77,7 +88,12 @@ body{
 }
 
 @font-face{
-    font-family: font;
+    font-family: caviar;
     src: url(font/bold.woff);
     font-weight: bold;
+}
+
+@font-face{
+    font-family: comfortaa;
+    src: url(font/head.woff);
 }
