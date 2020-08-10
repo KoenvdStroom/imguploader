@@ -49,7 +49,7 @@ if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg
 if ($uploadOk == 0) {
   echo "Sorry, your file was not uploaded.";
 } else {
-  if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], "./".$name)) {
+  if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], "../../img.kvds.dev/".$name)) {
     // echo "The file ". $name . " has been uploaded.";
     // echo("<a href=\"https://img.kvds.dev/$name\">Click here to view</a>");
     header("Location: http://img.kvds.dev/".$name);

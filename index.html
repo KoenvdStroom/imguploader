@@ -7,7 +7,7 @@
   </head>
 <body>
 
-  <form id="upload" method="post" action="upload.php">
+  <form id="upload" method="post" action="upload.php" enctype="multipart/form-data" name="upload">
       <div id="fileUpload">
         <input type="file" id="fileToUpload" name="fileToUpload" />
         <label for="fileToUpload">Choose image</label>
@@ -23,22 +23,17 @@
   <script type="text/javascript">
     var form = document.getElementById("upload");
     var fileInput = document.getElementById("fileToUpload");
+    var submit = document.getElementById("submit");
 
-    fileInput.addEventListener('change', () => {
-      form.submit();
-    });
+    var label	 = fileInput.nextElementSibling,
+		labelVal = label.innerHTML;
 
     window.addEventListener('paste', e => {
       fileInput.files = e.clipboardData.files;
-      form.submit();
+      submit.click();
     });
 
-
-	var label	 = fileInput.nextElementSibling,
-		labelVal = label.innerHTML;
-
-	fileInput.addEventListener( 'change', function( e )
-	{
+	fileInput.addEventListener( 'change', function( e ){
 		var fileName = '';
 		if( this.files && this.files.length > 1 ){
 			fileName = ( this.getAttribute( 'data-multiple-caption' ) || '' ).replace( '{count}', this.files.length );
@@ -49,11 +44,13 @@
 
 		if( fileName ){
 			label.innerHTML = fileName;
-    }
+      }
 		else{
 			label.innerHTML = labelVal;
     }
 	});
+
+
 
   </script>
 </body>
