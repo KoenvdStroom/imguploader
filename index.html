@@ -24,21 +24,10 @@
     var form = document.getElementById("upload");
     var fileInput = document.getElementById("fileToUpload");
 
-    fileInput.addEventListener('change', () => {
-      form.submit();
-    });
-
-    window.addEventListener('paste', e => {
-      fileInput.files = e.clipboardData.files;
-      form.submit();
-    });
-
-
-	var label	 = fileInput.nextElementSibling,
+    var label	 = fileInput.nextElementSibling,
 		labelVal = label.innerHTML;
 
-	fileInput.addEventListener( 'change', function( e )
-	{
+	fileInput.addEventListener( 'change', function( e ){
 		var fileName = '';
 		if( this.files && this.files.length > 1 ){
 			fileName = ( this.getAttribute( 'data-multiple-caption' ) || '' ).replace( '{count}', this.files.length );
@@ -49,11 +38,17 @@
 
 		if( fileName ){
 			label.innerHTML = fileName;
+      form.submit();
     }
 		else{
 			label.innerHTML = labelVal;
     }
 	});
+
+    window.addEventListener('paste', e => {
+      fileInput.files = e.clipboardData.files;
+      form.submit();
+    });
 
   </script>
 </body>
