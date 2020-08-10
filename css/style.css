@@ -9,6 +9,12 @@
     font-size: 2em;
 }
 
+/* Footer style */
+#copyright{
+    text-align: center;
+    color: #CECECE;
+    font-family: comfortaa;
+}
 
 /* File upload style */
 #fileUpload{
